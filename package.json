@@ -4,14 +4,17 @@
   "description": "A library for creating animated svg",
   "main": "src/animated-svg.js",
   "scripts": {
-    "build": "npx webpack",
+    "build": "npx webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Abid H. Mujtaba",
   "license": "MIT",
   "devDependencies": {
+    "@types/snapsvg": "^0.5.2",
     "imports-loader": "~0",
-    "webpack": "~3"
+    "ts-loader": "^8.4.0",
+    "webpack": "~4",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
     "snapsvg": "^0.5.1"
