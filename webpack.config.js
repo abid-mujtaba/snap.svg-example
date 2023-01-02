@@ -11,7 +11,20 @@ module.exports = {
         rules: [
             {
                 test: require.resolve('snapsvg/dist/snap.svg.js'),
-                use: 'imports-loader?this=>window,fix=>module.exports=0',
+                use: [
+                    {
+                        loader: 'imports-loader',
+                        options: {
+                            wrapper: 'window',
+                        }
+                    },
+                    {
+                        loader: 'imports-loader',
+                        options: {
+                            additionalCode: 'var fix = module.exports = 0;'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.ts?$/,
