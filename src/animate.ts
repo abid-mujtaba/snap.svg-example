@@ -1,6 +1,6 @@
 import Snap from "snapsvg";
 
-export { animate };
+export { animate, load };
 
 // Convert Snap.Element.animate to async/await by wrapping it
 async function animate(
@@ -13,5 +13,16 @@ async function animate(
         const result = element.animate(attrs, duration, easing, () => {
             resolve(result);
         })
+    });
+}
+
+async function load(url: string, group: Snap.Paper): Promise<void> {
+    return new Promise(resolve => {
+        Snap.load(url, (frag: Snap.Element) => {
+            group.append(frag);
+            group.attr({ opacity: 0 });  // Make group invisible to begin with
+
+            resolve();
+        });
     });
 }

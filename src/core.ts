@@ -1,5 +1,5 @@
 import Snap from "snapsvg";
-import { animate } from "./animate";
+import { animate, load } from "./animate";
 
 export { main };
 
@@ -7,13 +7,10 @@ async function main() {
     const s = Snap("#svg");
 
     const g = s.group();
+    await load("assets/tux.svg", g);
 
-    const tux = Snap.load("assets/tux.svg", (frag) => {
-        const elem = frag as Snap.Element;
-        g.append(elem)
-        g.attr({ opacity: 0.5 });
-        g.transform('T200,100 s0.2');
-    });
+    g.transform('T200,100 s0.2');
+    g.attr({ opacity: 1 });
 
     const c1 = s.circle(150, 150, 100);
     const c2 = s.circle(600, 150, 50);

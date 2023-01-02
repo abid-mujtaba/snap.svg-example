@@ -5,7 +5,6 @@
             "type": "npm",
             "label": "webpack: dev server",
             "script": "develop",
-            "promptOnClose": true,
             "isBackground": true,
             "problemMatcher": [
                 "$tsc"
