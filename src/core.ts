@@ -15,8 +15,6 @@ async function main() {
         g.transform('T200,100 s0.2');
     });
 
-
-
     const c1 = s.circle(150, 150, 100);
     const c2 = s.circle(600, 150, 50);
 

@@ -39,4 +39,8 @@ module.exports = {
         },
         extensions: ['.tsx', '.ts', '.js']
     },
+    devServer: {
+        static: __dirname,
+        port: 4000
+    }
 }
