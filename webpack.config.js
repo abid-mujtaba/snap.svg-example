@@ -21,7 +21,7 @@ module.exports = {
                     {
                         loader: 'imports-loader',
                         options: {
-                            additionalCode: 'var fix = module.exports = 0;'
+                            additionalCode: 'module.exports = 0;'
                         }
                     }
                 ]

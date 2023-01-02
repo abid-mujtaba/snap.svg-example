@@ -1,4 +1,5 @@
 import Snap from "snapsvg";
+import { animate } from "./animate";
 
 export { main };
 
@@ -9,7 +10,11 @@ async function main() {
 
     c2.attr({ fill: "green" });
 
-    c1.animate({ r: 50 }, 2000);
-    c2.animate({ r: 100 }, 2000);
+    // Animate circles one by one
+    await animate(c1, { r: 50 }, 1000);
+    await animate(c2, { r: 100 }, 1000);
+
+    // Animate circles simultaneously
+    await Promise.all([animate(c1, { r: 100 }, 2000), animate(c2, { r: 50 }, 2000)]);
 }
 
